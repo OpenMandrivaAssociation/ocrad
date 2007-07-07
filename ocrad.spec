@@ -1,5 +1,5 @@
 %define name ocrad
-%define version 0.15
+%define version 0.17
 %define release %mkrel 1
 
 
@@ -25,18 +25,13 @@ a backend to other programs
 
 %prep
 rm -rf $RPM_BUILD_ROOT
-
-%setup 
+%setup -q
 
 %build
-
-./configure --prefix=%_prefix
-
-
+./configure --prefix=%_prefix CFLAGS="%optflags" CXXFLAGS="%optflags" CPPFLAGS="%optflags"
 %make
 
 %install
-
 export PATH=$PATH:/sbin
 %makeinstall
 
@@ -54,5 +49,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc README COPYING INSTALL TODO ChangeLog
 %_bindir/*
 %_infodir/*
-
-
