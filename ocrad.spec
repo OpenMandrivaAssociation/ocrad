@@ -11,7 +11,6 @@ License: 	GPL
 Group: 		Publishing
 Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.bz2
 URL: 		http://www.gnu.org/software/ocrad/ocrad.html
-BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	info-install
 
 %description
