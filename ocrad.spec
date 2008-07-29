@@ -1,6 +1,6 @@
 %define name ocrad
 %define version 0.17
-%define release %mkrel 1
+%define release %mkrel 3
 
 
 Version: 	%{version}
