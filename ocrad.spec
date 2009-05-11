@@ -1,15 +1,14 @@
 %define name ocrad
-%define version 0.17
-%define release %mkrel 3
-
+%define version 0.18
+%define release %mkrel 1
 
 Version: 	%{version}
 Summary: 	Optical Character Recognition
 Name: 		%{name}
 Release: 	%{release}
-License: 	GPL
+License: 	GPLv3+
 Group: 		Publishing
-Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.bz2
+Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.gz
 URL: 		http://www.gnu.org/software/ocrad/ocrad.html
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	info-install
@@ -24,16 +23,16 @@ pages. Ocrad can be used as a stand-alone console application, or as
 a backend to other programs
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 %setup -q
 
 %build
-./configure --prefix=%_prefix CFLAGS="%optflags" CXXFLAGS="%optflags" CPPFLAGS="%optflags"
+./configure --prefix=%_prefix CFLAGS="%optflags" CXXFLAGS="%optflags" CPPFLAGS="%optflags" LDFLAGS="%{?ldflags}"
 %make
 
 %install
+rm -fr %buildroot
 export PATH=$PATH:/sbin
-%makeinstall
+%makeinstall_std
 
 %post
 %_install_info %name.info
@@ -42,10 +41,11 @@ export PATH=$PATH:/sbin
 %_remove_install_info %name.info
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %buildroot
 
 %files
 %defattr (-,root,root)
 %doc README COPYING INSTALL TODO ChangeLog
 %_bindir/*
 %_infodir/*
+%_mandir/man1/*.1.*
