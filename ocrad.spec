@@ -1,5 +1,5 @@
 %define name ocrad
-%define version 0.18
+%define version 0.19
 %define release %mkrel 1
 
 Version: 	%{version}
@@ -22,11 +22,18 @@ separate the columns or blocks of text normally found on printed
 pages. Ocrad can be used as a stand-alone console application, or as 
 a backend to other programs
 
+%package devel
+Group: Publishing
+Summary: Header files needed for ocard development
+
+%description devel
+This package contains header files needed for ocard development.
+
 %prep
 %setup -q
 
 %build
-./configure --prefix=%_prefix CFLAGS="%optflags" CXXFLAGS="%optflags" CPPFLAGS="%optflags" LDFLAGS="%{?ldflags}"
+./configure --prefix=%_prefix --libdir=%_libdir CFLAGS="%optflags" CXXFLAGS="%optflags" CPPFLAGS="%optflags" LDFLAGS="%{?ldflags}"
 %make
 
 %install
@@ -49,3 +56,8 @@ rm -rf %buildroot
 %_bindir/*
 %_infodir/*
 %_mandir/man1/*.1.*
+
+%files devel
+%defattr (-,root,root)
+%{_includedir}/ocradlib.h
+%{_libdir}/libocrad.a
