@@ -1,6 +1,6 @@
 %define name ocrad
 %define version 0.21
-%define release %mkrel 1
+%define release  2
 
 Version: 	%{version}
 Summary: 	Optical Character Recognition
