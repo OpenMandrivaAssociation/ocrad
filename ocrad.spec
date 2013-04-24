@@ -41,8 +41,6 @@ rm -fr %buildroot
 export PATH=$PATH:/sbin
 %makeinstall_std
 
-%post
-%_install_info %name.info
 
 %postun
 %_remove_install_info %name.info
