@@ -42,8 +42,6 @@ export PATH=$PATH:/sbin
 %makeinstall_std
 
 
-%postun
-%_remove_install_info %name.info
 
 %clean
 rm -rf %buildroot
