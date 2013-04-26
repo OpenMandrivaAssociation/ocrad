@@ -1,17 +1,11 @@
-%define name ocrad
-%define version 0.21
-%define release  2
-
-Version: 	%{version}
 Summary: 	Optical Character Recognition
-Name: 		%{name}
-Release: 	%{release}
+Name: 		ocrad
+Version: 	0.21
+Release: 	3
 License: 	GPLv3+
 Group: 		Publishing
 Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.gz
 URL: 		http://www.gnu.org/software/ocrad/ocrad.html
-BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	info-install
 
 %description
 Ocrad is an OCR (Optical Character Recognition) program implemented 
@@ -40,11 +34,6 @@ This package contains header files needed for ocard development.
 rm -fr %buildroot
 export PATH=$PATH:/sbin
 %makeinstall_std
-
-
-
-%clean
-rm -rf %buildroot
 
 %files
 %defattr (-,root,root)
