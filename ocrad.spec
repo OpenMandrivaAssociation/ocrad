@@ -1,10 +1,10 @@
 Summary: 	Optical Character Recognition
 Name: 		ocrad
-Version: 	0.21
-Release: 	3
+Version: 	0.23
+Release: 	1
 License: 	GPLv3+
 Group: 		Publishing
-Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.gz
+Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.xz
 URL: 		http://www.gnu.org/software/ocrad/ocrad.html
 
 %description
@@ -27,61 +27,19 @@ This package contains header files needed for ocard development.
 %setup -q
 
 %build
-./configure --prefix=%_prefix --libdir=%_libdir CFLAGS="%optflags" CXXFLAGS="%optflags" CPPFLAGS="%optflags" LDFLAGS="%{?ldflags}"
+./configure --prefix=%{_prefix} --libdir=%{_libdir} CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" CPPFLAGS="%{optflags}" LDFLAGS="%{?ldflags}"
 %make
 
 %install
-rm -fr %buildroot
 export PATH=$PATH:/sbin
 %makeinstall_std
 
 %files
-%defattr (-,root,root)
-%doc README COPYING INSTALL TODO ChangeLog
-%_bindir/*
-%_infodir/*
-%_mandir/man1/*.1.*
+%doc README COPYING INSTALL ChangeLog
+%{_bindir}/*
+%{_infodir}/*
+%{_mandir}/man1/*.1.*
 
 %files devel
-%defattr (-,root,root)
 %{_includedir}/ocradlib.h
 %{_libdir}/libocrad.a
-
-
-%changelog
-* Wed Mar 16 2011 Stéphane Téletchéa <steletch@mandriva.org> 0.21-1mdv2011.0
-+ Revision: 645353
-- update to new version 0.21
-
-* Tue Jul 20 2010 Funda Wang <fwang@mandriva.org> 0.20-1mdv2011.0
-+ Revision: 555065
-- update to new version 0.20
-
-* Fri Jan 29 2010 Funda Wang <fwang@mandriva.org> 0.19-1mdv2010.1
-+ Revision: 497883
-- New version 0.19
-
-* Mon May 11 2009 Funda Wang <fwang@mandriva.org> 0.18-1mdv2010.0
-+ Revision: 374118
-- New version 0.18
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - rebuild
-
-* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 0.17-1mdv2008.1
-+ Revision: 136634
-- restore BuildRoot
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - kill re-definition of %%buildroot on Pixel's request
-
-* Sat Jul 07 2007 Austin Acton <austin@mandriva.org> 0.17-1mdv2008.0
-+ Revision: 49287
-- new version
-- enforce build flags
-
-
-* Wed Oct 25 2006 Lenny Cartier <lenny@mandriva.com> 0.16-1mdv2007.0
-+ Revision: 72336
-- Import ocrad
-

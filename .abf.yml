@@ -1,2 +1,4 @@
+removed_sources:
+  ocrad-0.21.tar.gz: 857a7e0b671d4216ddf2ec1ec2daf0b21d2a6a64
 sources:
-  "ocrad-0.21.tar.gz": 857a7e0b671d4216ddf2ec1ec2daf0b21d2a6a64
+  ocrad-0.23.tar.xz: b65812cc8f7612fbb2433fc10066547b21e4c865
