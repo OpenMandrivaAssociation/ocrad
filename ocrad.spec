@@ -1,7 +1,7 @@
 Summary: 	Optical Character Recognition
 Name: 		ocrad
 Version: 	0.23
-Release: 	1
+Release: 	2
 License: 	GPLv3+
 Group: 		Publishing
 Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.xz
