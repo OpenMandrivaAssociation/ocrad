@@ -5,7 +5,7 @@ Release: 	2
 License: 	GPLv3+
 Group: 		Publishing
 Source: 	http://ftp.gnu.org/gnu/ocrad/%{name}-%{version}.tar.xz
-URL: 		http://www.gnu.org/software/ocrad/ocrad.html
+URL: 		https://www.gnu.org/software/ocrad/ocrad.html
 
 %description
 Ocrad is an OCR (Optical Character Recognition) program implemented 
